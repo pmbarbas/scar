@@ -1,0 +1,310 @@
+{
+  "agents": [
+    {
+      "agent_id": "agent-A",
+      "declared_epoch": 9,
+      "state": "REPORTING"
+    },
+    {
+      "agent_id": "agent-B",
+      "declared_epoch": 9,
+      "state": "REPORTING"
+    },
+    {
+      "agent_id": "agent-C",
+      "declared_epoch": 9,
+      "state": "REPORTING"
+    }
+  ],
+  "claims": [
+    {
+      "asserted_epoch": 8,
+      "asserted_tree_digest": "4a3b101853de2da3e37581f82201ede1613670a3c36a3d92ad3f5a70972f786d",
+      "caveats": [],
+      "claim_id": "claim-13",
+      "event_id": "evt-13",
+      "evidence_ids": [
+        "ev-8-O4-integration-support"
+      ],
+      "obligation_id": "O4-integration",
+      "origin_authenticated": false,
+      "polarity": "SUPPORT",
+      "provenance": "controlled fixture observation",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "asserted_epoch": 9,
+      "asserted_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909",
+      "caveats": [],
+      "claim_id": "claim-6",
+      "event_id": "evt-1",
+      "evidence_ids": [
+        "ev-9-O1-interface-support"
+      ],
+      "obligation_id": "O1-interface",
+      "origin_authenticated": false,
+      "polarity": "SUPPORT",
+      "provenance": "controlled fixture observation",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "asserted_epoch": 9,
+      "asserted_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909",
+      "caveats": [],
+      "claim_id": "claim-7",
+      "event_id": "evt-2",
+      "evidence_ids": [
+        "ev-9-O2-caller-support"
+      ],
+      "obligation_id": "O2-caller",
+      "origin_authenticated": false,
+      "polarity": "SUPPORT",
+      "provenance": "controlled fixture observation",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "asserted_epoch": 9,
+      "asserted_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909",
+      "caveats": [],
+      "claim_id": "claim-8",
+      "event_id": "evt-3",
+      "evidence_ids": [
+        "ev-9-O3-unit-tests-support"
+      ],
+      "obligation_id": "O3-unit-tests",
+      "origin_authenticated": false,
+      "polarity": "SUPPORT",
+      "provenance": "controlled fixture observation",
+      "verifier_id": "fixture-oracle-v1"
+    }
+  ],
+  "events": [
+    {
+      "agent_id": "agent-C",
+      "claim_ids": [
+        "claim-6"
+      ],
+      "delivery": "RECEIVED",
+      "event_id": "evt-1",
+      "parent_event_ids": [],
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    },
+    {
+      "agent_id": "agent-A",
+      "claim_ids": [
+        "claim-13"
+      ],
+      "delivery": "RECEIVED",
+      "event_id": "evt-13",
+      "parent_event_ids": [],
+      "source_epoch": 8,
+      "source_tree_digest": "4a3b101853de2da3e37581f82201ede1613670a3c36a3d92ad3f5a70972f786d"
+    },
+    {
+      "agent_id": "agent-A",
+      "claim_ids": [
+        "claim-7"
+      ],
+      "delivery": "RECEIVED",
+      "event_id": "evt-2",
+      "parent_event_ids": [
+        "evt-1"
+      ],
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    },
+    {
+      "agent_id": "agent-B",
+      "claim_ids": [
+        "claim-8"
+      ],
+      "delivery": "RECEIVED",
+      "event_id": "evt-3",
+      "parent_event_ids": [
+        "evt-1"
+      ],
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    }
+  ],
+  "evidence": [
+    {
+      "creator_id": "fixture-verifier",
+      "evidence_class": "fixture-test-result",
+      "evidence_id": "ev-8-O4-integration-support",
+      "path": "source/H8/evidence/ev-8-O4-integration-support.json",
+      "sha256": "7f22182f464a22e3c310fd112133d6e819c0cb40d7fce5fbb49ce0fdd19309eb",
+      "source_epoch": 8,
+      "source_tree_digest": "4a3b101853de2da3e37581f82201ede1613670a3c36a3d92ad3f5a70972f786d"
+    },
+    {
+      "creator_id": "fixture-verifier",
+      "evidence_class": "fixture-test-result",
+      "evidence_id": "ev-9-O1-interface-support",
+      "path": "source/H9/evidence/ev-9-O1-interface-support.json",
+      "sha256": "888fbbdb8108677018654b380781d688a655164f3e51292d167ff74e2f30d7df",
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    },
+    {
+      "creator_id": "fixture-verifier",
+      "evidence_class": "fixture-test-result",
+      "evidence_id": "ev-9-O2-caller-support",
+      "path": "source/H9/evidence/ev-9-O2-caller-support.json",
+      "sha256": "65f27052aa124c8d8d0db759ea653179cdb429b07cba5efe8f6a0ddf34ef89ee",
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    },
+    {
+      "creator_id": "fixture-verifier",
+      "evidence_class": "fixture-test-result",
+      "evidence_id": "ev-9-O3-unit-tests-support",
+      "path": "source/H9/evidence/ev-9-O3-unit-tests-support.json",
+      "sha256": "6c9df297c520203f6a403f72fa9c1c26b5510b0ad4317062d7146655a670dea1",
+      "source_epoch": 9,
+      "source_tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909"
+    }
+  ],
+  "obligations": [
+    {
+      "accepted_evidence_classes": [
+        "fixture-test-result"
+      ],
+      "applicability": "always",
+      "depends_on": [],
+      "obligation_id": "O1-interface",
+      "obligation_type": "source-change-check",
+      "title": "O1 interface",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "accepted_evidence_classes": [
+        "fixture-test-result"
+      ],
+      "applicability": "always",
+      "depends_on": [
+        "O1-interface"
+      ],
+      "obligation_id": "O2-caller",
+      "obligation_type": "source-change-check",
+      "title": "O2 caller",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "accepted_evidence_classes": [
+        "fixture-test-result"
+      ],
+      "applicability": "always",
+      "depends_on": [
+        "O1-interface"
+      ],
+      "obligation_id": "O3-unit-tests",
+      "obligation_type": "source-change-check",
+      "title": "O3 unit tests",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "accepted_evidence_classes": [
+        "fixture-test-result"
+      ],
+      "applicability": "always",
+      "depends_on": [
+        "O2-caller",
+        "O3-unit-tests"
+      ],
+      "obligation_id": "O4-integration",
+      "obligation_type": "source-change-check",
+      "title": "O4 integration",
+      "verifier_id": "fixture-oracle-v1"
+    },
+    {
+      "accepted_evidence_classes": [
+        "fixture-test-result"
+      ],
+      "applicability": "always",
+      "depends_on": [
+        "O4-integration"
+      ],
+      "obligation_id": "O5-package",
+      "obligation_type": "source-change-check",
+      "title": "O5 package",
+      "verifier_id": "fixture-oracle-v1"
+    }
+  ],
+  "policy": {
+    "advisory_when_complete": "MAY_CONTINUE",
+    "allowed_queries": [
+      {
+        "allowed_outcomes": [
+          "SUPPORT",
+          "REFUTE",
+          "UNKNOWN",
+          "TIMEOUT"
+        ],
+        "cost": 1,
+        "obligation_id": "O1-interface",
+        "query_id": "verify-O1-interface"
+      },
+      {
+        "allowed_outcomes": [
+          "SUPPORT",
+          "REFUTE",
+          "UNKNOWN",
+          "TIMEOUT"
+        ],
+        "cost": 2,
+        "obligation_id": "O2-caller",
+        "query_id": "verify-O2-caller"
+      },
+      {
+        "allowed_outcomes": [
+          "SUPPORT",
+          "REFUTE",
+          "UNKNOWN",
+          "TIMEOUT"
+        ],
+        "cost": 2,
+        "obligation_id": "O3-unit-tests",
+        "query_id": "verify-O3-unit-tests"
+      },
+      {
+        "allowed_outcomes": [
+          "SUPPORT",
+          "REFUTE",
+          "UNKNOWN",
+          "TIMEOUT"
+        ],
+        "cost": 3,
+        "obligation_id": "O4-integration",
+        "query_id": "verify-O4-integration"
+      },
+      {
+        "allowed_outcomes": [
+          "SUPPORT",
+          "REFUTE",
+          "UNKNOWN",
+          "TIMEOUT"
+        ],
+        "cost": 2,
+        "obligation_id": "O5-package",
+        "query_id": "verify-O5-package"
+      }
+    ],
+    "host_authorization_required": true,
+    "max_states": 256,
+    "policy_id": "fixture-policy-v1",
+    "timeout_allowed": true
+  },
+  "schema_version": "scar.evidence.v0",
+  "scope": {
+    "epoch": 9,
+    "manifest_digest": "44d93cf1c974473f48887fee60a2076cc477066d96b2ad3ce3ce95e7d3aa071d",
+    "patch_digest": "d374fe12fdb54eb1d6aebcf321deb2b7d4b63d1ce919f22a9f442940bf0c731c",
+    "repository_id": "fixture-repo",
+    "schema_version": 1,
+    "tree_digest": "1703bbecf6037bc9b1aa11298e425df14a90f8527100d6c0ea863e7472a21909",
+    "verifier_policy_id": "fixture-policy-v1"
+  },
+  "workflow_id": "recoverable-O4"
+}

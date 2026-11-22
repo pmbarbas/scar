@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scar.evidence.v0",
+  "title": "SCAR evidence envelope v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "scope", "obligations", "agents", "events", "claims", "evidence", "policy"],
+  "properties": {
+    "schema_version": {"const": "scar.evidence.v0"},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "scope": {"type": "object", "additionalProperties": false, "required": ["repository_id", "tree_digest", "patch_digest", "manifest_digest", "epoch", "schema_version", "verifier_policy_id"], "properties": {
+      "repository_id": {"type": "string"}, "tree_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+      "patch_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "manifest_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+      "epoch": {"type": "integer", "minimum": 0}, "schema_version": {"const": 1}, "verifier_policy_id": {"type": "string"}}},
+    "obligations": {"type": "array", "minItems": 1, "maxItems": 8, "items": {"type": "object", "additionalProperties": false, "required": ["obligation_id", "title", "obligation_type", "depends_on", "applicability", "accepted_evidence_classes", "verifier_id"], "properties": {
+      "obligation_id": {"type": "string"}, "title": {"type": "string"}, "obligation_type": {"type": "string"}, "depends_on": {"type": "array", "items": {"type": "string"}}, "applicability": {"type": "string"}, "accepted_evidence_classes": {"type": "array", "items": {"type": "string"}}, "verifier_id": {"type": "string"}}}},
+    "agents": {"type": "array", "maxItems": 256, "items": {"type": "object", "additionalProperties": false, "required": ["agent_id", "declared_epoch", "state"], "properties": {"agent_id": {"type": "string"}, "declared_epoch": {"type": "integer"}, "state": {"type": "string"}}}},
+    "events": {"type": "array", "maxItems": 256, "items": {"type": "object", "additionalProperties": false, "required": ["event_id", "agent_id", "parent_event_ids", "source_epoch", "source_tree_digest", "claim_ids", "delivery"], "properties": {"event_id": {"type": "string"}, "agent_id": {"type": "string"}, "parent_event_ids": {"type": "array", "items": {"type": "string"}}, "source_epoch": {"type": "integer"}, "source_tree_digest": {"type": "string"}, "claim_ids": {"type": "array", "items": {"type": "string"}}, "delivery": {"enum": ["RECEIVED", "IN_FLIGHT"]}}}},
+    "claims": {"type": "array", "maxItems": 256, "items": {"type": "object", "additionalProperties": false, "required": ["claim_id", "obligation_id", "polarity", "evidence_ids", "asserted_tree_digest", "asserted_epoch", "verifier_id", "event_id", "origin_authenticated", "provenance", "caveats"], "properties": {"claim_id": {"type": "string"}, "obligation_id": {"type": "string"}, "polarity": {"enum": ["SUPPORT", "REFUTE"]}, "evidence_ids": {"type": "array", "items": {"type": "string"}}, "asserted_tree_digest": {"type": "string"}, "asserted_epoch": {"type": "integer"}, "verifier_id": {"type": "string"}, "event_id": {"type": "string"}, "origin_authenticated": {"type": "boolean"}, "provenance": {"type": "string"}, "caveats": {"type": "array", "items": {"type": "string"}}}}},
+    "evidence": {"type": "array", "maxItems": 256, "items": {"type": "object", "additionalProperties": false, "required": ["evidence_id", "path", "sha256", "evidence_class", "source_tree_digest", "source_epoch", "creator_id"], "properties": {"evidence_id": {"type": "string"}, "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "evidence_class": {"type": "string"}, "source_tree_digest": {"type": "string"}, "source_epoch": {"type": "integer"}, "creator_id": {"type": "string"}}}},
+    "policy": {"type": "object", "additionalProperties": false, "required": ["policy_id", "allowed_queries", "timeout_allowed", "advisory_when_complete", "host_authorization_required", "max_states"], "properties": {
+      "policy_id": {"type": "string"}, "allowed_queries": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "obligation_id", "cost", "allowed_outcomes"], "properties": {"query_id": {"type": "string"}, "obligation_id": {"type": "string"}, "cost": {"type": "integer", "minimum": 0}, "allowed_outcomes": {"type": "array", "items": {"enum": ["SUPPORT", "REFUTE", "UNKNOWN", "TIMEOUT"]}}}}, "timeout_allowed": {"type": "boolean"}, "advisory_when_complete": {"type": "string"}, "host_authorization_required": {"const": true}, "max_states": {"type": "integer", "minimum": 1, "maximum": 256}}}
+  }
+}
+}

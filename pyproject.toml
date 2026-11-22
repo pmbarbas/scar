@@ -1,0 +1,18 @@
+[build-system]
+requires = []
+build-backend = "scar_build_backend"
+backend-path = ["."]
+
+[project]
+name = "scar-research-toolkit"
+version = "0.2.0"
+description = "Experimental offline research toolkit for inspecting structured agent-workflow evidence"
+requires-python = ">=3.11"
+dependencies = []
+readme = "README.md"
+license = "Apache-2.0"
+
+[project.scripts]
+scar = "scar_core.cli:main"
+scar-kit = "scar_toolkit.cli:main"
+
